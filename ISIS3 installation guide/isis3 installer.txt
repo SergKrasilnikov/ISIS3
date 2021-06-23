@@ -1,0 +1,76 @@
+Method of ISIS3 with Miniconda on the Ubuntu 18
+(Метод установки ISIS3 при помощи MiniConda на Ubuntu 18)
+1. Download Miniconda for Linux (Скачиваем MiniConda для Linux (https://docs.conda.io/en/latest/miniconda.html).)
+Install it
+(Устанавливаем)
+
+bash Miniconda3-latest-Linux-x86_64.sh (https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html#install-linux-silent)
+export PATH=~/miniconda3/bin:$PATH
+conda list
+conda install -c conda-forge pkg-config (https://anaconda.org/conda-forge/pkg-config)
+
+2. Again from within a terminal window, create a new environment for your ISIS3 installation: (https://isis.astrogeology.usgs.gov/documents/InstallGuide/#ISIS3DataDownload)
+
+conda config --add channels conda-forge
+conda config --add channels usgs-astrogeology
+conda config --show channels
+ #You should see:
+          channels:
+              - usgs-astrogeology
+              - conda-forge
+              - defaults
+
+conda create -n isis3
+source activate isis3
+conda install -c usgs-astrogeology isis3 (скачивает isis3 ~800 мб)
+python $CONDA_PREFIX/scripts/isis3VarInit.py
+source activate isis3
+qview (проверка, работает ли программа)
+
+After installation, you should should use the next command after each restart of command line (or you can apply step number 3).
+Далее, для подключения команд ISIS3 в командной строке, каждый раз при перезагрузке командной строки (опционально, либо пункт 3)
+source activate isis3
+python $CONDA_PREFIX/scripts/isis3VarInit.py
+source activate isis3
+
+3. Fixed connection to the ISIS3 in command line.
+Можно настроить постоянное подключение к командам SISI3
+После установки ISIS3 и настройки пакета команд, нужно скачать базу данных (где-то здесь во всплывшем окне добавить три строчки в самом конце документа из предыдущего пункта, запускающего команды)
+cd ../
+ls -la ~/|more
+vim ~/.bashrc
+nano ~/.bashrc
+
+4. Data base for ISIS3
+Установка баз данных.
+mkdir isis3
+dd isis3
+rsync -azv --delete --partial isisdist.astrogeology.usgs.gov::isis3data/data/base data/ (базовые данные)
+rsync -azv --delete --partial isisdist.astrogeology.usgs.gov::isis3data/data/lro data/ (данные LRO)
+
+
+
+
+
+Old method for ISIS3 installation on the Ubuntu 14
+Старый метод установки ISIS3 на Ubuntu 14:
+(создаем папку isis3 для работы в ней, дальше команды нужно выполнять в этой папке)
+0) mkdir isis3
+1) rsync -azv --delete --partial isisdist.astrogeology.usgs.gov::x86-64_linux_UBUNTU/isis .
+(скачивание основные базы данных)
+2) rsync -azv --delete --partial isisdist.astrogeology.usgs.gov::isis3data/data/base data/
+(скачивание данных позиционирования для LRO (как пример))
+3_n)rsync -azv --delete --partial isisdist.astrogeology.usgs.gov::isis3data/data/lro data/
+
+Для подключения команд ISIS3 в командной строке, каждый раз при перезагрузке командной строки.
+To start ISIS:
+
+ISISROOT=/home/dyadyamisha/isis3/isis
+export ISISROOT
+
+. $ISISROOT/scripts/isis3Startup.sh
+
+
+Test ISIS work:
+
+qview
