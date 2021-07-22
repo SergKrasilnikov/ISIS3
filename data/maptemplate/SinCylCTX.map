@@ -1,0 +1,18 @@
+Group = Mapping
+ TargetName         = Mars
+ EquatorialRadius   = 3396190.0 <meters>
+ PolarRadius        = 3376200.0 <meters>
+ LatitudeType       = Planetocentric
+ LongitudeDirection = PositiveEast
+ LongitudeDomain    = 360
+
+ ProjectionName     = Sinusoidal
+ CenterLongitude    = 227.95679808356
+
+ MinimumLatitude    = 10.766902750622
+ MaximumLatitude    = 34.44419678224
+ MinimumLongitude   = 219.7240455337
+ MaximumLongitude   = 236.18955063342
+
+ PixelResolution    = 426.87763879023 <meters/pixel>
+End_Group

@@ -1,0 +1,12 @@
+Group = Mapping
+  ProjectionName     = Equirectangular
+  CenterLongitude    = 43.9
+  CenterLatitude     = -68.7
+  TargetName         = MOON
+  EquatorialRadius   = 1737400.0 <meters>
+  PolarRadius        = 1737400.0 <meters>
+  LatitudeType       = Planetocentric
+  LongitudeDirection = PositiveEast
+  LongitudeDomain    = 360
+End_Group
+End
