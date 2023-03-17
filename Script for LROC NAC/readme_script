@@ -1,6 +1,0 @@
-Put script "reformat.sh" in the free folder and cold it "processing". Add folder "list" in it with the raw images. Open the command line and go to this folder "processing". Set next command:
-bash reformat.sh /home/.../processing/list
-
-Находясь в пустой папке processing со скриптом reformat.sh и папкой list, в которой хранятся сырые изображения, запустить команду:
-bash reformat.sh /home/.../processing/list
-
