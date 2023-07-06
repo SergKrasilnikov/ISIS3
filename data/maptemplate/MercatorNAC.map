@@ -1,7 +1,7 @@
 Group = Mapping
-  ProjectionName     = Equirectangular
-  CenterLongitude    = 43.9
-  CenterLatitude     = -68.7
+  ProjectionName     = Mercator
+  CenterLongitude    = 180.0
+  CenterLatitude     = 0.0
   TargetName         = MOON
   EquatorialRadius   = 1737400.0 <meters>
   PolarRadius        = 1737400.0 <meters>
